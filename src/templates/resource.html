@@ -1,0 +1,25 @@
+<h1>{{title}}</h1>
+<div class=" row">
+    <label for="txtUser" class="col-sm-2 col-md-2 control-label">Select User</label>
+    <div class="col-sm-10 col-md-5">
+      <select  class="" id="txtUser" name="User"  ng-model="selectedUser" placeholder="Select User" ng-change="userChanged()">
+	  <option ng-repeat="user in users" value="{{user.Id}}">{{user.FullName}}</option></select>
+    </div>
+</div>
+<h3>User Detail</h3>
+<div class="row">
+	<div class="col-md-3"><strong>First Name</strong></div>
+	<div class="col-md-5">{{userDetail.FName}}</div>
+</div>
+<div class="row">
+	<div class="col-md-3"><strong>Last Name</strong></div>
+	<div class="col-md-5">{{userDetail.LName}}</div>
+</div>
+<div class="row">
+	<div class="col-md-3"><strong>Email</strong></div>
+	<div class="col-md-5">{{userDetail.Email}}</div>
+</div>
+<div class="row">
+	<div class="col-md-3"><strong>Mobile</strong></div>
+	<div class="col-md-5">{{userDetail.Mobile}}</div>
+</div>

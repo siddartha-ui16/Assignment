@@ -1,0 +1,36 @@
+<!DOCTYPE html> <!-- Html5 doc-->
+<html ng-app="invApp"> 
+<head>
+    <meta charset="utf-8" />
+    <title>Assignment</title>
+    <!--Bootstrap-->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!--js--> 
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-ui-router.min.js"></script>
+    
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <!-- User defined Angular controller-->
+      <script type="text/javascript" src="js/custom/app.js"></script>
+
+</head>
+<body >
+
+<div class="navbar">
+    <div class="navbar-inner">
+      <ul class="nav">
+        <li><a ui-sref="main">main</a></li>
+        <li><a ui-sref="form">form</a></li>
+		   <li><a ui-sref="resource">resource</a></li>
+      </ul>
+    </div>
+  </div>
+
+ <div class="row">
+      <div class="well" ui-view></div>        
+  </div>       
+</body>
+</html>

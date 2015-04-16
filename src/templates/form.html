@@ -1,0 +1,44 @@
+<h1>Form</h1>
+<hr/>
+<form class="form-horizontal" name="userForm">
+<div class="form-group row" ng-class="{'has-error':startValidate && iscontrolInvalid('FName'),'has-success':startValidate && !iscontrolInvalid('FName')}">
+    <label for="txtFName" class="col-sm-2 col-md-2  control-label">First Name</label>
+    <div class="col-sm-10 col-md-5">
+      <input type="text" class="form-control" id="txtFName" name="FName" ng-model="user.FName" placeholder="Enter First Name" required >
+    </div>
+	<div class="col-sm-12 col-md-10 col-md-offset-2 text-danger" ng-show="startValidate && iscontrolInvalid('FName')"><span>Enter First name</span></div>
+  </div>
+  
+   
+  
+  <div class="form-group row" ng-class="{'has-error':startValidate && iscontrolInvalid('LName'),'has-success':startValidate && !iscontrolInvalid('LName')}">
+    <label for="txtLName" class="col-sm-2 col-md-2 control-label">Last Name</label>
+    <div class="col-sm-10 col-md-5">
+      <input type="text" class="form-control" id="txtLName" name="LName"  ng-model="user.LName" placeholder="Enter Last Name" required>
+    </div>
+	<div class="col-sm-12 col-md-10 col-md-offset-2 text-danger" ng-show="startValidate && iscontrolInvalid('LName')"><span>Enter Last name</span></div>
+	</div>
+ <div class="form-group" ng-class="{'has-error':startValidate && iscontrolInvalid('Email'),'has-success':startValidate && !iscontrolInvalid('Email')}">
+    <label for="txtEmail" class="col-sm-2 col-md-2 control-label">Email</label>
+    <div class="col-sm-10 col-md-5">
+      <input type="email" class="form-control" id="txtEmail" name="Email"  ng-model="user.Email" placeholder="Enter Email" required>
+    </div>
+	<div class="col-sm-12 col-md-10 col-md-offset-2 text-danger" ng-show="startValidate && iscontrolInvalid('Email')"><span>Enter valid Email</span></div>
+	</div>
+  <div class="form-group" ng-class="{'has-error':startValidate && iscontrolInvalid('Mobile'),'has-success':startValidate && !iscontrolInvalid('Mobile')}">
+    <label for="txtPhone" class="col-sm-2 col-md-2 control-label">Mobile</label>
+    <div class="col-sm-10 col-md-5">
+      <input type="text" class="form-control" id="txtPhone" name="Mobile"  ng-model="user.Mobile" placeholder="Enter Mobile Number" required ng-minlength="10">
+    </div>
+	<div class="col-sm-12 col-md-10 col-md-offset-2 text-danger" ng-show="startValidate && iscontrolInvalid('Mobile')"><span>Enter valid Mobile number (Min 10 digits)</span></div>
+	</div>
+  <div class="modal-footer">    
+	<div class=" row">
+      <div class="col-xs-11 col-sm-11 col-md-6">
+      <button type="button" class="btn btn-primary btn-md pull-right" ng-click="submit()" tooltip="Submit">Submit</button></div>
+      <div class="col-xs-1 col-sm-1 col-md-1">
+      <a tooltip="Cancel" type="button" class="btn btn-danger pull-left" ng-click="cancel()">Cancel</a>
+      </div>
+      </div>
+      </div>
+</form>

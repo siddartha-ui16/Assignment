@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="sampleApp">
+	<head>
+	<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <title>Sample Assignment</title>
+	 <link rel="stylesheet" href="css/all.min.css">
+	 <!-- Include all concatenated Third party Js (Jquery, angular..etc) from dist -->
+	 <script type="text/javascript" src="js/plugins.min.js"></script>
+	 <!-- Include all concatenated and minified js from dist -->
+	 <script type="text/javascript" src="js/custom.min.js"></script>
+	</head>
+	<body ng-cloak>
+	<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header"><a class="navbar-brand" href="#">Assignment</a></div>
+		 <ul class="nav navbar-nav">
+			<li><a ui-sref="main">Main</a></li>
+			<li><a ui-sref="form">Form</a></li>
+			<li><a ui-sref="resource">Resource</a></li>
+		</ul>
+	</div>
+	</nav>
+	
+ <div class="row">
+      <div class="well" ui-view></div>        
+  </div>       
+	</body>
+</html>
