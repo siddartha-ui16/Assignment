@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-app="datagridapp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Data-grid exercise</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+
+</head>
+<body>
+    <div ng-controller="codeController" class="col-md-12">
+        <h4><strong>Column Master</strong></h4>
+        <script type="text/ng-template" id="Add.html">
+            <div class="modal-header">
+                <h3 class="modal-title">I'm a modal!</h3>
+            </div>
+        </script>
+        <div id="addColumn" class="">
+            <button class="btn btn-default" ng-click="open()">Add Column</button>
+                <div ng-controller="ModalDemoCtrl">
+                    <script type="text/ng-template" id="myModalContent.html">
+                        <div class="modal-header">
+                            <h3 class="modal-title">I'm a modal!</h3>
+                        </div>
+                        <div class="modal-body">
+                            <ul>
+                                <li ng-repeat="item in items">
+                                    <a ng-click="selected.item = item">{{ item }}</a>
+                                </li>
+                            </ul>
+                            Selected: <b>{{ selected.item }}</b>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" ng-click="ok()">OK</button>
+                            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                        </div>
+            </script>
+        </div>
+            <button class="btn btn-default" ng-click="removeColumn()">Remove Column</button>
+        </div>
+        <p></p>
+        <div id="columnTable">
+            <table class="table table-bordered table-stripped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Column Name</th>
+                        <th>Column Type</th>
+                        <th>Editable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="column in columns">
+                        <td><input type="checkbox" name="columnCheckbox"</td>
+                        <td>{{column.columnName}}</td>
+                        <td>{{column.columnType}}</td>
+                        <td>{{column.columnEditable}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h4><strong>Result Data Grid</strong></h4>
+        <div id="addRow">
+            <button class="btn btn-default" ng-click="addRow">Add Row</button>
+            <button class="btn btn-default" ng-click="removeRow">Delete Row</button>
+            <button class="btn btn-default" ng-click="exportRow">Export to JSON</button>
+        </div>
+        <p></p>
+        <div id="rowTable">
+            <table class="table table-bordered table-stripped col-sm-6">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                    <th>Column 4</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="column in columns">
+                    <td><input type="checkbox" name="rowCheckbox"</td>
+                    <td>{{column.columnOne}}</td>
+                    <td>{{column.columnTwo}}</td>
+                    <td>{{column.columnThree}}</td>
+                    <td>{{column.columnFour}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+            <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/json3/lib/json3.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/codeController.js"></script>
+
+</body>
+</html>

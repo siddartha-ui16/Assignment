@@ -1,0 +1,89 @@
+<html>
+<head>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+</head>
+<body>
+<p id="demo"></p>
+<button>Get JSON data</button>
+
+<script>
+    $(document).ready(function () {
+        var personArray = [];
+        var jsResponse, xmlResponse;
+        $("button").click(function () {
+            calljsDataService();
+        });
+    });
+
+
+    $.makeTable = function (mydata) {
+        var table = $('<table border=1>');
+        var tblHeader = "<tr>";
+        for (var k in mydata[0]) tblHeader += "<th>" + k + "</th>";
+        tblHeader += "</tr>";
+        $(tblHeader).appendTo(table);
+        $.each(mydata, function (index, value) {
+            var TableRow = "<tr>";
+            $.each(value, function (key, val) {
+                TableRow += "<td>" + val + "</td>";
+            });
+            TableRow += "</tr>";
+            $(table).append(TableRow);
+        });
+        return ($(table));
+    };
+
+    var personArray = [];
+    function calljsDataService() {
+        personArray = [];
+        $("#demo").empty();
+        $.getJSON("demo_ajax_json.js", function (result) {
+            jsResponse = result;
+            callxmlDataService();
+        });
+    }
+    function callxmlDataService() {
+        $.ajax({
+            type: "GET",
+            url: "demo_xml.xml",
+            dataType: "xml",
+            success: function (returnedXMLResponse) {
+                var a = 0, xmlArry = [];
+                var xmlResponse = returnedXMLResponse.documentElement.childNodes;
+
+                if (jsResponse && jsResponse.person.length > 0) {
+                    jsResponse.person.forEach(function (jsItem) {
+                        personArray.push(jsItem);
+                    });
+                }
+                for (var i = 0; i < xmlResponse.length; i++) {
+                    if (xmlResponse[i].nodeType == 1) {
+                        var newPerson = new Object();
+                        for (var j = 0; j < xmlResponse[i].childNodes.length; j++) {
+                            var value = xmlResponse[i].childNodes[j].childNodes[0].data;
+                            newPerson[xmlResponse[i].childNodes[j].nodeName] = !isNaN(value) ? Number(value) : value;
+                        }
+                        personArray.push(newPerson);
+                    }
+
+                }
+                console.log(personArray);
+                function sortArray(a,b) {
+                   
+                }
+                personArray.sort(function (item1,item2) {
+                    return item1.id - item2.id;
+                });
+                fillTable();
+            }
+        });
+    }
+    function fillTable() {
+        if (personArray && personArray.length > 0) {
+            var table = $.makeTable(personArray);
+            $(table).appendTo("#demo");
+        }
+    }
+</script>
+</body>
+</html>
